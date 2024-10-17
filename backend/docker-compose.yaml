@@ -1,0 +1,13 @@
+
+services:
+  movie_db:
+    build:
+      context: ./database
+      dockerfile: db.dockerfile
+    environment:
+      - POSTGRES_DB=movie_db
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=secret
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
